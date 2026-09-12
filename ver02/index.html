@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Микродом Сервис — авторизованный сервисный центр ноутбуков Lenovo в Минске</title>
+  <meta name="description" content="Авторизованный сервисный центр Lenovo в Минске: гарантийный и внегарантийный ремонт ноутбуков и планшетов, диагностика день в день, оригинальные запчасти.">
+
+  <link rel="canonical" href="https://microdomservice.by/">
+  <link rel="icon" href="assets/img/microdom-logo.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Микродом Сервис — авторизованный сервисный центр Lenovo">
+  <meta property="og:description" content="Гарантийный и внегарантийный ремонт ноутбуков в Минске. Диагностика день в день, оригинальные запчасти.">
+  <meta property="og:image" content="assets/img/microdom-logo.png">
+
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Стили: токены → база → каркас → компоненты → секции -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="module" src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<!-- ==========================================================================
+     Спрайт иконок: описываем каждую иконку один раз, вставляем через <use>
+     ========================================================================== -->
+<svg class="visually-hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M12 3l7 3v6c0 5-3 7.5-7 9-4-1.5-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M4 12l5 5L20 6"/>
+    </symbol>
+    <symbol id="icon-parts" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="4" y="7" width="16" height="12" rx="1"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/>
+    </symbol>
+    <symbol id="icon-screen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="4" y="4" width="16" height="11" rx="1"/>
+      <path d="M2 18h20l-1.5 2.5a1 1 0 01-.86.5H4.36a1 1 0 01-.86-.5L2 18z"/>
+      <path d="M8 9l2 2-2 2" opacity=".5"/>
+    </symbol>
+    <symbol id="icon-board" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="5" y="5" width="14" height="14" rx="1.5"/><rect x="9" y="9" width="6" height="6"/>
+      <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>
+    </symbol>
+    <symbol id="icon-keyboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="3" y="7" width="18" height="11" rx="1.5"/>
+      <path d="M7 11h.01M10 11h.01M13 11h.01M16 11h.01M7 14h10"/>
+    </symbol>
+    <symbol id="icon-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="7" y="4" width="10" height="17" rx="1.5"/><path d="M10 4V2h4v2"/><path d="M10 9l-1.5 3.5h3L10 16"/>
+    </symbol>
+    <symbol id="icon-cooling" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="12" cy="12" r="3.2"/>
+      <path d="M12 3v2.4M12 18.6V21M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M3 12h2.4M18.6 12H21M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/>
+    </symbol>
+    <symbol id="icon-data" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <ellipse cx="12" cy="6" rx="7" ry="3"/>
+      <path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6"/><path d="M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6"/>
+    </symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M3 5c0 9 7 16 16 16l2-4-6-2-2 2c-2.5-1.2-4.8-3.5-6-6l2-2-2-6-4 2z"/>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6.5l9 6.5 9-6.5"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ==========================================================================
+     Шапка
+     ========================================================================== -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="#top" aria-label="Микродом Сервис — на главную">
+      <img class="logo-mark" src="assets/img/microdom-logo.svg" alt="Микродом Сервис" width="355" height="103">
+      <span class="logo-tagline">Lenovo ASP · Минск</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#process">Как это работает</a>
+      <a href="#why">Гарантия</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+
+    <div class="header-right">
+      <a class="phone-link" href="tel:+375173352755">+375 17 335‑27‑55</a>
+      <a class="btn btn--primary btn--sm" href="#contact">Оставить заявку</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav wrap" id="mobile-nav" data-mobile-nav data-open="false" aria-label="Мобильная навигация">
+    <a href="#services">Услуги</a>
+    <a href="#process">Как это работает</a>
+    <a href="#why">Гарантия</a>
+    <a href="#contact">Контакты</a>
+    <a href="tel:+375173352755" class="mono">+375 17 335‑27‑55</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ========================================================================
+       Hero
+       ======================================================================== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Официальный сервис-центр Lenovo с 2010 года</p>
+        <h1 id="hero-title">Ремонт ноутбуков Lenovo —<br>по гарантии и <em>без</em> компромиссов.</h1>
+        <p class="hero-lead">Диагностика день в день, оригинальные запчасти и статус ремонта на связи от приёма до выдачи. Принимаем в гарантийный ремонт технику Lenovo и во внегарантийный — ноутбуки любых марок.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn--primary" href="#contact">Записаться на диагностику</a>
+          <a class="btn btn--outline" href="tel:+375173352755">Позвонить в сервис</a>
+        </div>
+
+        <dl class="hero-stats">
+          <div class="stat">
+            <dt class="stat-num">2–5 дней</dt>
+            <dd class="stat-label">средний срок ремонта</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat-num">15+ лет</dt>
+            <dd class="stat-label">на рынке портативной техники</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat-num">100%</dt>
+            <dd class="stat-label">оригинальные комплектующие</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Пример сервисного листа -->
+      <article class="ticket" aria-label="Пример сервисного листа">
+        <div class="ticket-head">
+          <div>
+            <p class="ticket-label">Сервисный лист</p>
+            <p class="ticket-number">№ MDS‑2026‑0817</p>
+          </div>
+          <p class="ticket-stamp">АВТОРИЗ.<br>СЕРВИС<br>LENOVO</p>
+        </div>
+
+        <div class="ticket-body">
+          <p class="ticket-field"><span>Модель</span><b>Lenovo ThinkPad X1</b></p>
+          <p class="ticket-field"><span>Обращение</span><b>Не включается, диагностика платы</b></p>
+          <p class="ticket-field"><span>Тип обслуживания</span><b>Гарантийный ремонт</b></p>
+        </div>
+
+        <div class="stages">
+          <p class="stages-label">Статус ремонта</p>
+          <ol class="stage-row">
+            <li class="stage-item is-done"><span class="dot"></span><span class="stage-name">Приём</span></li>
+            <li class="stage-item is-done"><span class="connector"></span><span class="dot"></span><span class="stage-name">Диагностика</span></li>
+            <li class="stage-item is-active"><span class="connector"></span><span class="dot"></span><span class="stage-name">Ремонт</span></li>
+            <li class="stage-item"><span class="connector"></span><span class="dot"></span><span class="stage-name">Контроль</span></li>
+            <li class="stage-item"><span class="connector"></span><span class="dot"></span><span class="stage-name">Выдача</span></li>
+          </ol>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Полоса доверия
+       ======================================================================== -->
+  <div class="trust">
+    <div class="wrap">
+      <ul class="trust-list">
+        <li class="trust-item">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-shield"></use></svg>
+          Официальный авторизованный сервис-центр Lenovo
+        </li>
+        <li class="trust-item">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-clock"></use></svg>
+          Диагностика в день обращения
+        </li>
+        <li class="trust-item">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"></use></svg>
+          Гарантия на все выполненные работы
+        </li>
+        <li class="trust-item">
+          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-parts"></use></svg>
+          Оригинальные запчасти Lenovo
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Услуги
+       ======================================================================== -->
+  <section class="section services" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="services-title">Что мы ремонтируем</h2>
+        <p>От замены экрана до диагностики материнской платы — весь цикл в одном сервис-центре.</p>
+      </div>
+
+      <ul class="svc-grid reveal">
+        <li class="svc-card">
+          <span class="icon-box"><svg width="22" height="22" aria-hidden="true"><use href="#icon-screen"></use></svg></span>
+          <h3>Замена экрана</h3>
+          <p>Треснувшие матрицы, битые пиксели, повреждённые шлейфы и подсветка.</p>
+        </li>
+        <li class="svc-card">
+          <span class="icon-box"><svg width="22" height="22" aria-hidden="true"><use href="#icon-board"></use></svg></span>
+          <h3>Диагностика платы</h3>
+          <p>Поиск неисправностей цепей питания, восстановление после залития.</p>
+        </li>
+        <li class="svc-card">
+          <span class="icon-box"><svg width="22" height="22" aria-hidden="true"><use href="#icon-keyboard"></use></svg></span>
+          <h3>Клавиатура и корпус</h3>
+          <p>Замена клавиш, петель, крышек и корпусных элементов.</p>
+        </li>
+        <li class="svc-card">
+          <span class="icon-box"><svg width="22" height="22" aria-hidden="true"><use href="#icon-battery"></use></svg></span>
+          <h3>Аккумулятор и питание</h3>
+          <p>Замена батарей, разъёмов и блоков питания, ремонт зарядных цепей.</p>
+        </li>
+        <li class="svc-card">
+          <span class="icon-box"><svg width="22" height="22" aria-hidden="true"><use href="#icon-cooling"></use></svg></span>
+          <h3>Чистка и охлаждение</h3>
+          <p>Замена термопасты, чистка от пыли, устранение перегрева и шума кулера.</p>
+        </li>
+        <li class="svc-card">
+          <span class="icon-box"><svg width="22" height="22" aria-hidden="true"><use href="#icon-data"></use></svg></span>
+          <h3>Данные и ПО</h3>
+          <p>Восстановление данных, переустановка систем и настройка ПО.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Процесс ремонта
+       ======================================================================== -->
+  <section class="section process" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="process-title">Как проходит ремонт</h2>
+        <p>Шесть шагов от приёма устройства до выдачи с результатом.</p>
+      </div>
+
+      <ol class="process-list reveal">
+        <li class="proc-item">
+          <p class="proc-num">01</p>
+          <h3>Приём</h3>
+          <p>Осмотр устройства, оформление сервисного листа.</p>
+        </li>
+        <li class="proc-item">
+          <p class="proc-num">02</p>
+          <h3>Диагностика</h3>
+          <p>Поиск неисправности, как правило — день в день.</p>
+        </li>
+        <li class="proc-item">
+          <p class="proc-num">03</p>
+          <h3>Согласование</h3>
+          <p>Сообщаем стоимость и сроки перед началом работ.</p>
+        </li>
+        <li class="proc-item">
+          <p class="proc-num">04</p>
+          <h3>Ремонт</h3>
+          <p>Работы на профессиональном оборудовании.</p>
+        </li>
+        <li class="proc-item">
+          <p class="proc-num">05</p>
+          <h3>Контроль</h3>
+          <p>Проверка узлов и стабильности перед выдачей.</p>
+        </li>
+        <li class="proc-item">
+          <p class="proc-num">06</p>
+          <h3>Выдача</h3>
+          <p>Возврат устройства с гарантией на работы.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Почему мы
+       ======================================================================== -->
+  <section class="section why" id="why" aria-labelledby="why-title">
+    <div class="wrap why-grid">
+      <div class="why-intro reveal">
+        <p class="eyebrow">Гарантия и статус</p>
+        <h2 id="why-title">Почему обращаются именно к нам</h2>
+        <p>Статус официального сервис-центра Lenovo обязывает нас к международным стандартам обслуживания — и мы держим их не только для гарантийных случаев.</p>
+      </div>
+
+      <ul class="why-list reveal">
+        <li class="why-row">
+          <svg class="icon-check" aria-hidden="true"><use href="#icon-check"></use></svg>
+          <div>
+            <h3>Официальный статус ASP Lenovo</h3>
+            <p>Ремонт по условиям международной гарантии производителя.</p>
+          </div>
+        </li>
+        <li class="why-row">
+          <svg class="icon-check" aria-hidden="true"><use href="#icon-check"></use></svg>
+          <div>
+            <h3>Внегарантийный ремонт любых марок</h3>
+            <p>Принимаем ноутбуки и планшеты не только Lenovo.</p>
+          </div>
+        </li>
+        <li class="why-row">
+          <svg class="icon-check" aria-hidden="true"><use href="#icon-check"></use></svg>
+          <div>
+            <h3>Прозрачные сроки</h3>
+            <p>Полный цикл ремонта — не более двух недель, обычно 2–5 дней.</p>
+          </div>
+        </li>
+        <li class="why-row">
+          <svg class="icon-check" aria-hidden="true"><use href="#icon-check"></use></svg>
+          <div>
+            <h3>Всегда на связи</h3>
+            <p>Менеджеры сообщают о статусе ремонта на каждом этапе.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Контакты
+       ======================================================================== -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 id="contact-title">Контакты и адрес приёма</h2>
+        <p>Оставьте заявку, или приезжайте в сервис-центр в удобное время.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div>
+          <div class="info-row">
+            <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-pin"></use></svg>
+            <div>
+              <p class="info-key">Адрес приёма</p>
+              <p class="info-value">г. Минск, ул. Первомайская, 24/2, офис 106</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-phone"></use></svg>
+            <div>
+              <p class="info-key">Телефон</p>
+              <p class="info-value mono">
+                <a href="tel:+375173352755">+375 17 335‑27‑55</a> ·
+                <a href="tel:+375295760404">+375 29 576‑04‑04</a>
+              </p>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-mail"></use></svg>
+            <div>
+              <p class="info-key">Email</p>
+              <p class="info-value mono"><a href="mailto:support@microdomservice.by">support@microdomservice.by</a></p>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-clock"></use></svg>
+            <div>
+              <p class="info-key">Режим работы</p>
+              <p class="info-value">Пн–Пт, 10:00–18:00</p>
+            </div>
+          </div>
+
+          <div class="form-box">
+            <h3>Оставить заявку</h3>
+            <p class="form-hint">Свяжемся в течение рабочего дня, чтобы уточнить модель и неисправность.</p>
+
+            <form data-lead-form novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="lead-name">Имя</label>
+                  <input id="lead-name" name="name" type="text" autocomplete="name" required placeholder="Как к вам обращаться">
+                </div>
+                <div class="field">
+                  <label for="lead-phone">Телефон</label>
+                  <input id="lead-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+375 __ ___-__-__">
+                </div>
+              </div>
+              <div class="field">
+                <label for="lead-model">Модель ноутбука</label>
+                <input id="lead-model" name="model" type="text" placeholder="Например, Lenovo ThinkPad E14">
+              </div>
+              <div class="field">
+                <label for="lead-issue">Опишите проблему</label>
+                <textarea id="lead-issue" name="issue" placeholder="Что произошло с устройством"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--block">Отправить заявку</button>
+              <p class="form-msg" data-form-message role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+
+        <div class="map-box">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2350.724079062723!2d27.577654000000003!3d53.901108!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfb7fe70edff%3A0xeaccd6f70c124dbc!2z0JzQmNCa0KDQntCU0J7QnCDQodCV0KDQktCY0KEg0J7QntCe!5e0!3m2!1sru!2s!4v1425843626243"
+            title="Карта проезда к сервис-центру"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     Футер
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-chip">
+          <img class="logo-mark" src="assets/img/microdom-logo.svg" alt="Микродом Сервис" width="355" height="103">
+        </span>
+        <p class="logo-tagline">Lenovo ASP · Минск</p>
+        <p class="footer-desc">Авторизованный сервисный центр ноутбуков и планшетов Lenovo. Гарантийный и постгарантийный ремонт портативной техники в Минске.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Навигация</h3>
+        <ul>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#process">Как это работает</a></li>
+          <li><a href="#why">Гарантия</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Связь</h3>
+        <ul>
+          <li class="mono"><a href="tel:+375173352755">+375 17 335‑27‑55</a></li>
+          <li class="mono"><a href="mailto:support@microdomservice.by">support@microdomservice.by</a></li>
+          <li>Первомайская 24/2, офис 106, Минск</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© Микродом Сервис, 2026. Все права защищены.</span>
+      <span>Lenovo — зарегистрированный товарный знак Lenovo Group. Мы являемся авторизованным партнёром по сервисному обслуживанию.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

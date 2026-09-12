@@ -1,0 +1,271 @@
+/* ==========================================================================
+   sections.css — правила конкретных секций страницы
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  padding: 76px 0 64px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 4.4vw, 52px);
+  font-weight: 700;
+  line-height: 1.06;
+  max-width: 640px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--red);
+}
+
+.hero-lead {
+  margin-top: 22px;
+  font-size: 17px;
+  color: var(--gray-700);
+  max-width: 520px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  display: flex;
+  margin-top: 44px;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+
+.hero-stats .stat {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.hero-stats .stat + .stat {
+  border-left: 1px solid var(--line);
+  padding-left: 20px;
+}
+
+.hero-stats .stat-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.hero-stats .stat-label {
+  font-size: 12.5px;
+  color: var(--gray-500);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-stats {
+    flex-wrap: wrap;
+    row-gap: 18px;
+  }
+
+  .hero-stats .stat {
+    flex: 1 1 45%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Полоса доверия
+   -------------------------------------------------------------------------- */
+
+.trust {
+  background: var(--dark-bg);
+  color: #f2f1ee;
+  border-bottom: 1px solid var(--line);
+}
+
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  flex: 1 1 220px;
+  padding: 26px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 1px solid var(--dark-line);
+  font-size: 13.5px;
+}
+
+.trust-item:first-child {
+  border-left: none;
+}
+
+.trust-item .icon {
+  flex-shrink: 0;
+  color: var(--red);
+}
+
+@media (max-width: 900px) {
+  .trust-item {
+    border-left: none;
+    border-top: 1px solid var(--dark-line);
+  }
+
+  .trust-item:first-child {
+    border-top: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Услуги
+   -------------------------------------------------------------------------- */
+
+.services {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--line);
+}
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .svc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .svc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Процесс ремонта
+   -------------------------------------------------------------------------- */
+
+.process-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .process-list {
+    grid-template-columns: 1fr;
+    border-top: none;
+  }
+
+  .proc-item {
+    border-right: none;
+    border-top: 1px solid var(--line);
+    padding: 22px 0;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .proc-num {
+    min-width: 26px;
+  }
+
+  .proc-item h3 {
+    margin-top: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Почему мы
+   -------------------------------------------------------------------------- */
+
+.why {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.why-intro p {
+  color: var(--gray-700);
+  margin-top: 18px;
+  font-size: 15px;
+  max-width: 420px;
+}
+
+.why-list {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Контакты
+   -------------------------------------------------------------------------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+}
+
+.map-box {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 100%;
+  min-height: 320px;
+  filter: grayscale(0.35) contrast(1.02);
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
