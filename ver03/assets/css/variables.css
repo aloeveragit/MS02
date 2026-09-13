@@ -1,0 +1,45 @@
+/* ==========================================================================
+   variables.css — дизайн-токены проекта
+   Единственное место, где заданы цвета, радиусы и размеры сетки.
+   ========================================================================== */
+
+:root {
+  /* Поверхности */
+  --bg: #f5f4f1;
+  --bg-alt: #ececea;
+  --white: #ffffff;
+
+  /* Текст */
+  --ink: #17181a;
+  --gray-700: #4b4d52;
+  --gray-500: #7a7c81;
+  --gray-300: #c9c8c4;
+  --line: #dcdbd7;
+
+  /* Акцент */
+  --red: #cf2e3a;
+  --red-dark: #9e1f29;
+  --red-tint: #fbe9ea;
+
+  /* Тёмная секция (шапка футера, полоса доверия) */
+  --dark-bg: #17181a;
+  --dark-text: #c9c8c4;
+  --dark-text-strong: #e4e3e0;
+  --dark-text-muted: #989793;
+  --dark-line: rgba(255, 255, 255, 0.12);
+
+  /* Типографика */
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Геометрия */
+  --radius: 2px;
+  --maxw: 1180px;
+  --header-h: 76px;
+  --section-py: 88px;
+
+  /* Анимация */
+  --transition-fast: 0.15s ease;
+  --transition-slow: 0.6s ease;
+}

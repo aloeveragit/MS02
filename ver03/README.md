@@ -1,9 +1,3 @@
-# MS02
-https://aloeveragit.github.io/MS02/
-https://aloeveragit.github.io/MS02/ver01/
-https://aloeveragit.github.io/MS02/ver02/
-https://aloeveragit.github.io/MS02/ver03/
-
 # Микродом Сервис — лендинг
 
 Статический сайт авторизованного сервисного центра Lenovo (Минск).
